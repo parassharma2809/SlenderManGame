@@ -22,12 +22,19 @@ public class PageSystem : MonoBehaviour {
 	 
 	 [Header("Page Pickup UI Settings")]
      public GameObject pickUpUI; //that prompt gameobject saying 'E to collect'
+
+    public int currentPageNum;
+    public GameObject nextPage;
+    public GameObject deadBody;
+    public GameObject horrorDoll;
  
      void  Start ()
 	 {
 	 	slenderai = Slender.GetComponent<MoveSlender>(); // slenderai is the script <MoveSlender> attached to it
 	 	pagecounter = PageCounter.GetComponent<PageCounter>(); // pagecounter is the script <PageCounter> attached to it
 		PagePickupSFX = PagePickupSFXContainer.GetComponent<AudioSource>(); // PagePickupSFX is the audiosource attached to PagePickupSFXContainer gameobject
+        deadBody = GameObject.Find("DeadBody");
+        horrorDoll = GameObject.Find("HorrorDoll");
      } 
  
      void  Update ()
@@ -62,6 +69,14 @@ public class PageSystem : MonoBehaviour {
 
                 // disable game object
                 this.gameObject.SetActive(false); // disable the gameobject itself
+
+                currentPageNum = int.Parse(this.gameObject.name.Substring(13));
+                nextPage = GameObject.Find("Slender Page " + currentPageNum);
+                if(currentPageNum == 4)
+                {
+                    deadBody.GetComponent<Renderer>().enabled = true;
+                    horrorDoll.GetComponent<Renderer>().enabled = true;
+                }
             }
         }
     }
