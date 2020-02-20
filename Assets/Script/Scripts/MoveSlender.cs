@@ -70,7 +70,7 @@ public class MoveSlender: MonoBehaviour {
 		}
 		
 		// The breathing sfx
-		if (Vector3.Distance(transform.position, player.position) <= distanceToPlayer) // if near player
+		if (Vector3.Distance(transform.position, player.position) <= distanceToPlayer) 
 		{
 			if (GetComponent<AudioSource>() && GetComponent<AudioSource>().clip && !GetComponent<AudioSource>().isPlaying && inView) // play the audio if it isn't playing and slender is in view
 			{
@@ -105,10 +105,14 @@ public class MoveSlender: MonoBehaviour {
 	}
 	
 	// The function to make slender face player
-	void FacePlayer()
+	public void FacePlayer()
 	{
 		Vector3 direction = (player.position - transform.position).normalized;
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * facePlayerfactor);
+	}
+
+	public void ChangeSlenderManRadius(float distance) {
+		distanceToPlayer = distance;
 	}
 }

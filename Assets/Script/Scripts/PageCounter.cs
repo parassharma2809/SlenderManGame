@@ -10,7 +10,7 @@ using System.Collections;
 public class PageCounter : MonoBehaviour {
 
 	 [Header("Page Setings")]
-     public float Page = 0; //no. of pages with player
+     public int Page = 0; //no. of pages with player
      public float pagesToWin = 8; //pages to win
 	 
 	 [Header("Score UI")]
@@ -24,7 +24,7 @@ public class PageCounter : MonoBehaviour {
 	 { 
 	     if (Page < pagesToWin) // if no. of pages with player is less that pages to win
          {
-             score.text = Page + "/8" + " Pages Collected"; // make the text display the no. of pages collected
+            score.text = Page + "/8" + " Pages Collected"; // make the text display the no. of pages collected
          }
          else // or else
          {

@@ -101,6 +101,7 @@ public class LightToggle : MonoBehaviour {
             yield return new WaitForSeconds(time);
 
             Debug.Log("Removing baterry value: " + value);
+            flashlight.intensity = 0.0f;
 
             if (battery > 0)
                 battery -= value;

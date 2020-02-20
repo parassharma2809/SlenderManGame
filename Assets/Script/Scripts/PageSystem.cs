@@ -11,6 +11,8 @@ public class PageSystem : MonoBehaviour {
 	 [Header("<MoveSlender> Script Settings")]
 	 public MoveSlender slenderai; //slender script
      public GameObject Slender; //slender model gameobject
+     public EnemyDetector detector; // used for event detection
+     public SlenderWarning warningEvent;
 	 
 	 [Header("<PageCounter> Script Settings")]
 	 public PageCounter pagecounter; //pagecounter script
@@ -22,6 +24,9 @@ public class PageSystem : MonoBehaviour {
 	 
 	 [Header("Page Pickup UI Settings")]
      public GameObject pickUpUI; //that prompt gameobject saying 'E to collect'
+
+     [Header("Special Events Settings")]
+     public SlenderWarning slenderWarning;
  
      void  Start ()
 	 {
@@ -54,6 +59,12 @@ public class PageSystem : MonoBehaviour {
 				slenderai.spawnRate -= 9; //decrease the spawn rate in <MoveSlender> by 9 so slender respawns faster and faster
 				
 				pagecounter.Page += 1; //increase the page count by 1 in <PageCounter>
+
+                // Force a SlenderMan encounter
+                if (pagecounter.Page == 2) {
+                    Debug.Log("Triggering forced SlenderMan encounter");
+                    warningEvent.triggerWarning();
+                }
 				
                 Debug.Log("You get this page: " + pagecounter.Page);
 
@@ -74,4 +85,14 @@ public class PageSystem : MonoBehaviour {
             pickUpUI.SetActive(false); // disable that prompt gameobject saying 'E to collect'
         }
     }
+
+    //  IEnumerator SlenderEncounter() {
+    //     // guiText.text = message;
+    //     // guiText.enabled = true;
+    //     // yield return new WaitForSeconds(delay);
+    //     // guiText.enabled = false;
+    //     detector.startGlitch();
+    //     yield return new WaitForSeconds(5f);
+    //     detector.stopGlitch();
+    // }
 }

@@ -42,10 +42,7 @@ public class EnemyDetector : MonoBehaviour {
 		if (angleToEnemy >= -41 && angleToEnemy <= 41 && Vector3.Distance(enemy.position, transform.position) <= distanceToEnemy && IsObscured(enemy) == false) // If enemy is in our 82° FOV and is not to far far from player and is visble
 		{
 			// Player is looking at enemy, increment counter.
-			StaticSFXSource.PlayOneShot(StaticSFX);
-			glitch.intensity = 1;
-			glitch.flipIntensity = 1;
-			glitch.colorIntensity = 0.3f;
+			startGlitch();
 			lookDuration += Time.deltaTime;
 			Debug.Log("Slender is visible");
 
@@ -59,11 +56,8 @@ public class EnemyDetector : MonoBehaviour {
 		else if (lookDuration > 0f) 
 		{
 			// Player is not looking at enemy, allow counter to drop back down.
-			glitch.intensity = 0;
-			glitch.flipIntensity = 0;
-			glitch.colorIntensity = 0;
+			stopGlitch();
 			lookDuration = Mathf.Max(lookDuration - Time.deltaTime * counterFalloff, 0f);
-			StaticSFXSource.Stop();
 		}
 		
 		Debug.Log("look duration = " + lookDuration);
@@ -86,5 +80,21 @@ public class EnemyDetector : MonoBehaviour {
 	void Die() 
 	{
 		SceneManager.LoadScene("DeathScene"); //Load scene 'DeathScene'
+	}
+
+	public void startGlitch() {
+		Debug.Log("Starting Glitch!!");
+		StaticSFXSource.PlayOneShot(StaticSFX);
+		glitch.intensity = 1;
+		glitch.flipIntensity = 1;
+		glitch.colorIntensity = 0.3f;
+	}
+
+	public void stopGlitch() {
+		Debug.Log("Stopping Glitch!!");
+		glitch.intensity = 0;
+		glitch.flipIntensity = 0;
+		glitch.colorIntensity = 0;
+		StaticSFXSource.Stop();
 	}
 }
