@@ -68,9 +68,13 @@ public class PageSystem : MonoBehaviour {
                 // disable game object
                 this.gameObject.SetActive(false); // disable the gameobject itself
 
-                currentPageNum = int.Parse(this.gameObject.name.Substring(13));
-                Debug.Log("Scary objects appearing near page " + currentPageNum);
-                ScaryObjects.appear(currentPageNum);
+
+                if(pagecounter.Page == 3)
+                {
+                    currentPageNum = int.Parse(this.gameObject.name.Substring(13));
+                    Debug.Log("Scary objects appearing near page " + currentPageNum);
+                    ScaryObjects.appear(currentPageNum);
+                }
             }
         }
     }
