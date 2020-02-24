@@ -447,9 +447,137 @@ Transform:
   - {fileID: 2849120611129511569}
   - {fileID: 2849120611094007049}
   - {fileID: 2849120610307319781}
+  - {fileID: 1984380187864770764}
   m_Father: {fileID: 2849120611770853918}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7296685045402639230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984380187864770764}
+  - component: {fileID: 1800793472222279317}
+  m_Layer: 0
+  m_Name: WarningSFXContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1984380187864770764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296685045402639230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2849120611985986880}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1800793472222279317
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296685045402639230}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e031a2074fc57e147b5c4e516f54a129, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2849120610129525917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -572,11 +700,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2849120610533362429}
     m_Modifications:
-    - target: {fileID: 1493023422390805189, guid: f4563cdc1331d884397dab1390aeaf2a,
-        type: 3}
-      propertyPath: m_Name
-      value: Slender Page 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1493023422390805188, guid: f4563cdc1331d884397dab1390aeaf2a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -641,6 +764,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493023422390805189, guid: f4563cdc1331d884397dab1390aeaf2a,
+        type: 3}
+      propertyPath: m_Name
+      value: Slender Page 7
       objectReference: {fileID: 0}
     - target: {fileID: 1493023422390805193, guid: f4563cdc1331d884397dab1390aeaf2a,
         type: 3}
@@ -792,11 +920,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2849120610533362429}
     m_Modifications:
-    - target: {fileID: 3447897018707702334, guid: c33e16c65afe4494c960eb689a3eaf59,
-        type: 3}
-      propertyPath: m_Name
-      value: Slender Page 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3447897018707702329, guid: c33e16c65afe4494c960eb689a3eaf59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -892,6 +1015,11 @@ PrefabInstance:
       propertyPath: pickUpUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3447897018707702334, guid: c33e16c65afe4494c960eb689a3eaf59,
+        type: 3}
+      propertyPath: m_Name
+      value: Slender Page 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33e16c65afe4494c960eb689a3eaf59, type: 3}
 --- !u!4 &599955167072387825 stripped
@@ -907,10 +1035,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2849120610533362429}
     m_Modifications:
-    - target: {fileID: 4341196712913903315, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
         type: 3}
-      propertyPath: m_Name
-      value: Slender Page 6
+      propertyPath: slenderai
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+        type: 3}
+      propertyPath: Slender
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+        type: 3}
+      propertyPath: pagecounter
+      value: 
+      objectReference: {fileID: 2849120611094007048}
+    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+        type: 3}
+      propertyPath: PageCounter
+      value: 
+      objectReference: {fileID: 2849120611094007051}
+    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+        type: 3}
+      propertyPath: PagePickupSFXContainer
+      value: 
+      objectReference: {fileID: 2849120610307319780}
+    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+        type: 3}
+      propertyPath: pickUpUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4341196712913903312, guid: 70a958ee900e3854e9df6dac5e5b5bca,
         type: 3}
@@ -977,35 +1130,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
+    - target: {fileID: 4341196712913903315, guid: 70a958ee900e3854e9df6dac5e5b5bca,
         type: 3}
-      propertyPath: slenderai
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
-        type: 3}
-      propertyPath: Slender
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
-        type: 3}
-      propertyPath: pagecounter
-      value: 
-      objectReference: {fileID: 2849120611094007048}
-    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
-        type: 3}
-      propertyPath: PageCounter
-      value: 
-      objectReference: {fileID: 2849120611094007051}
-    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
-        type: 3}
-      propertyPath: PagePickupSFXContainer
-      value: 
-      objectReference: {fileID: 2849120610307319780}
-    - target: {fileID: 4341196712913903279, guid: 70a958ee900e3854e9df6dac5e5b5bca,
-        type: 3}
-      propertyPath: pickUpUI
-      value: 
+      propertyPath: m_Name
+      value: Slender Page 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70a958ee900e3854e9df6dac5e5b5bca, type: 3}
@@ -1022,6 +1150,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2849120610533362429}
     m_Modifications:
+    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
+        type: 3}
+      propertyPath: slenderai
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
+        type: 3}
+      propertyPath: Slender
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
+        type: 3}
+      propertyPath: pagecounter
+      value: 
+      objectReference: {fileID: 2849120611094007048}
+    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
+        type: 3}
+      propertyPath: PageCounter
+      value: 
+      objectReference: {fileID: 2849120611094007051}
+    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
+        type: 3}
+      propertyPath: PagePickupSFXContainer
+      value: 
+      objectReference: {fileID: 2849120610307319780}
+    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
+        type: 3}
+      propertyPath: pickUpUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3270944835527649588, guid: 5b4a1a73a9031894d8ff95441ac9b688,
         type: 3}
       propertyPath: m_Name
@@ -1082,36 +1240,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
-        type: 3}
-      propertyPath: slenderai
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
-        type: 3}
-      propertyPath: Slender
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
-        type: 3}
-      propertyPath: pagecounter
-      value: 
-      objectReference: {fileID: 2849120611094007048}
-    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
-        type: 3}
-      propertyPath: PageCounter
-      value: 
-      objectReference: {fileID: 2849120611094007051}
-    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
-        type: 3}
-      propertyPath: PagePickupSFXContainer
-      value: 
-      objectReference: {fileID: 2849120610307319780}
-    - target: {fileID: 3270944835527649544, guid: 5b4a1a73a9031894d8ff95441ac9b688,
-        type: 3}
-      propertyPath: pickUpUI
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b4a1a73a9031894d8ff95441ac9b688, type: 3}
 --- !u!4 &787750495302808275 stripped
@@ -1127,10 +1255,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2849120610533362429}
     m_Modifications:
-    - target: {fileID: 7567087914587812220, guid: 90146ec588fa46b41a82a76e70ba0b65,
+    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
         type: 3}
-      propertyPath: m_Name
-      value: Slender Page 4
+      propertyPath: slenderai
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
+        type: 3}
+      propertyPath: Slender
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
+        type: 3}
+      propertyPath: pagecounter
+      value: 
+      objectReference: {fileID: 2849120611094007048}
+    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
+        type: 3}
+      propertyPath: PageCounter
+      value: 
+      objectReference: {fileID: 2849120611094007051}
+    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
+        type: 3}
+      propertyPath: PagePickupSFXContainer
+      value: 
+      objectReference: {fileID: 2849120610307319780}
+    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
+        type: 3}
+      propertyPath: pickUpUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7567087914587812211, guid: 90146ec588fa46b41a82a76e70ba0b65,
         type: 3}
@@ -1197,35 +1350,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
+    - target: {fileID: 7567087914587812220, guid: 90146ec588fa46b41a82a76e70ba0b65,
         type: 3}
-      propertyPath: slenderai
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
-        type: 3}
-      propertyPath: Slender
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
-        type: 3}
-      propertyPath: pagecounter
-      value: 
-      objectReference: {fileID: 2849120611094007048}
-    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
-        type: 3}
-      propertyPath: PageCounter
-      value: 
-      objectReference: {fileID: 2849120611094007051}
-    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
-        type: 3}
-      propertyPath: PagePickupSFXContainer
-      value: 
-      objectReference: {fileID: 2849120610307319780}
-    - target: {fileID: 7567087914587812208, guid: 90146ec588fa46b41a82a76e70ba0b65,
-        type: 3}
-      propertyPath: pickUpUI
-      value: 
+      propertyPath: m_Name
+      value: Slender Page 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90146ec588fa46b41a82a76e70ba0b65, type: 3}
@@ -1242,10 +1370,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2849120610533362429}
     m_Modifications:
-    - target: {fileID: 7042536549393186477, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
         type: 3}
-      propertyPath: m_Name
-      value: Slender Page 8
+      propertyPath: slenderai
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+        type: 3}
+      propertyPath: Slender
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+        type: 3}
+      propertyPath: pagecounter
+      value: 
+      objectReference: {fileID: 2849120611094007048}
+    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+        type: 3}
+      propertyPath: PageCounter
+      value: 
+      objectReference: {fileID: 2849120611094007051}
+    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+        type: 3}
+      propertyPath: PagePickupSFXContainer
+      value: 
+      objectReference: {fileID: 2849120610307319780}
+    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+        type: 3}
+      propertyPath: pickUpUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7042536549393186476, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
         type: 3}
@@ -1312,35 +1465,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
+    - target: {fileID: 7042536549393186477, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
         type: 3}
-      propertyPath: slenderai
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
-        type: 3}
-      propertyPath: Slender
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
-        type: 3}
-      propertyPath: pagecounter
-      value: 
-      objectReference: {fileID: 2849120611094007048}
-    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
-        type: 3}
-      propertyPath: PageCounter
-      value: 
-      objectReference: {fileID: 2849120611094007051}
-    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
-        type: 3}
-      propertyPath: PagePickupSFXContainer
-      value: 
-      objectReference: {fileID: 2849120610307319780}
-    - target: {fileID: 7042536549393186473, guid: ec2d6e82bc6b5f340aa924a6530f46b4,
-        type: 3}
-      propertyPath: pickUpUI
-      value: 
+      propertyPath: m_Name
+      value: Slender Page 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec2d6e82bc6b5f340aa924a6530f46b4, type: 3}

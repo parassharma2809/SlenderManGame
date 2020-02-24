@@ -12,7 +12,7 @@ public class PageSystem : MonoBehaviour {
 	 public MoveSlender slenderai; //slender script
      public GameObject Slender; //slender model gameobject
      public EnemyDetector detector; // used for event detection
-     public SlenderWarning warningEvent;
+    //  public SlenderWarning warningEvent;
 	 
 	 [Header("<PageCounter> Script Settings")]
 	 public PageCounter pagecounter; //pagecounter script
@@ -30,9 +30,10 @@ public class PageSystem : MonoBehaviour {
  
      void  Start ()
 	 {
-	 	slenderai = Slender.GetComponent<MoveSlender>(); // slenderai is the script <MoveSlender> attached to it
+        slenderai = Slender.GetComponent<MoveSlender>(); // slenderai is the script <MoveSlender> attached to it
 	 	pagecounter = PageCounter.GetComponent<PageCounter>(); // pagecounter is the script <PageCounter> attached to it
 		PagePickupSFX = PagePickupSFXContainer.GetComponent<AudioSource>(); // PagePickupSFX is the audiosource attached to PagePickupSFXContainer gameobject
+        slenderWarning = PageCounter.GetComponent<SlenderWarning>();
      } 
  
      void  Update ()
@@ -61,9 +62,9 @@ public class PageSystem : MonoBehaviour {
 				pagecounter.Page += 1; //increase the page count by 1 in <PageCounter>
 
                 // Force a SlenderMan encounter
-                if (pagecounter.Page == 2) {
+                if (pagecounter.Page == 1) {
                     Debug.Log("Triggering forced SlenderMan encounter");
-                    warningEvent.triggerWarning();
+                    slenderWarning.triggerWarning();
                 }
 				
                 Debug.Log("You get this page: " + pagecounter.Page);
