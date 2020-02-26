@@ -111,4 +111,15 @@ public class MoveSlender: MonoBehaviour {
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * facePlayerfactor);
 	}
+
+	public void Teleport()
+    {
+		nextTeleport = nextTeleport - spawnRate;
+		setDistanceToPlayer(8.0f);
+    }
+
+	public void setDistanceToPlayer(float dis)
+    {
+		distanceToPlayer = dis;
+    }
 }

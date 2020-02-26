@@ -100,7 +100,7 @@ public class LightToggle : MonoBehaviour {
         {
             yield return new WaitForSeconds(time);
 
-            Debug.Log("Removing baterry value: " + value);
+            //Debug.Log("Removing baterry value: " + value);
 
             if (battery > 0)
                 battery -= value;

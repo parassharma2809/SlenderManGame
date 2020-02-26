@@ -25,6 +25,11 @@ public class PageSystem : MonoBehaviour {
      
      private int currentPageNum;
      public GameObject scaryObjects;
+     public GameObject scaryMusicContainer;
+     public GameObject ambianceController;
+     public GameObject slenderVideoContainer;
+     AmbianceController ambianceControl;
+     ScaryMusic ScaryMusic;
      ScaryObjects ScaryObjects;
 
      void  Start ()
@@ -33,6 +38,8 @@ public class PageSystem : MonoBehaviour {
 	 	pagecounter = PageCounter.GetComponent<PageCounter>(); // pagecounter is the script <PageCounter> attached to it
 		PagePickupSFX = PagePickupSFXContainer.GetComponent<AudioSource>(); // PagePickupSFX is the audiosource attached to PagePickupSFXContainer gameobject
         ScaryObjects = scaryObjects.GetComponent<ScaryObjects>();
+        ScaryMusic = scaryMusicContainer.GetComponent<ScaryMusic>();
+        ambianceControl = ambianceController.GetComponent<AmbianceController>();
      } 
  
      void  Update ()
@@ -68,12 +75,21 @@ public class PageSystem : MonoBehaviour {
                 // disable game object
                 this.gameObject.SetActive(false); // disable the gameobject itself
 
-
-                if(pagecounter.Page == 3)
+                if (pagecounter.Page == 1) //play spooky audio clip
+                {
+                    ScaryMusic.PlayGhostClip(10f);
+                }
+                else if(pagecounter.Page == 3) // show scary object + static + audio clip
                 {
                     currentPageNum = int.Parse(this.gameObject.name.Substring(13));
                     Debug.Log("Scary objects appearing near page " + currentPageNum);
                     ScaryObjects.appear(currentPageNum);
+                } else if(pagecounter.Page == 4) // change background music
+                {
+                    ambianceControl.ChangeClip();
+                } else if(pagecounter.Page == 5) // slenderman teleport
+                {
+                    slenderai.Teleport();
                 }
             }
         }

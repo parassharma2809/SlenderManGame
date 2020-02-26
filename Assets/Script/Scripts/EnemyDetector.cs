@@ -66,7 +66,7 @@ public class EnemyDetector : MonoBehaviour {
 			StaticSFXSource.Stop();
 		}
 		
-		Debug.Log("look duration = " + lookDuration);
+		//Debug.Log("look duration = " + lookDuration);
 	}
 	
 	bool IsObscured(Transform target) 
