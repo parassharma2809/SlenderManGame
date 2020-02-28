@@ -23,24 +23,22 @@ public class PageSystem : MonoBehaviour {
 	 [Header("Page Pickup UI Settings")]
      public GameObject pickUpUI; //that prompt gameobject saying 'E to collect'
      
-     private int currentPageNum;
-     public GameObject scaryObjects;
-     public GameObject scaryMusicContainer;
-     public GameObject ambianceController;
-     public GameObject slenderVideoContainer;
-     AmbianceController ambianceControl;
-     ScaryMusic ScaryMusic;
-     ScaryObjects ScaryObjects;
+    [Header("Special Events Settings")]
+    public SlenderWarning slenderWarning;
+    private int currentPageNum;
+    public AmbianceController ambianceControl;
+    public ScaryMusic ScaryMusic;
+    public ScaryObjects ScaryObjects;
 
-     void  Start ()
+    void  Start ()
 	 {
 	 	slenderai = Slender.GetComponent<MoveSlender>(); // slenderai is the script <MoveSlender> attached to it
 	 	pagecounter = PageCounter.GetComponent<PageCounter>(); // pagecounter is the script <PageCounter> attached to it
 		PagePickupSFX = PagePickupSFXContainer.GetComponent<AudioSource>(); // PagePickupSFX is the audiosource attached to PagePickupSFXContainer gameobject
-        ScaryObjects = scaryObjects.GetComponent<ScaryObjects>();
+        /*ScaryObjects = scaryObjects.GetComponent<ScaryObjects>();
         ScaryMusic = scaryMusicContainer.GetComponent<ScaryMusic>();
-        ambianceControl = ambianceController.GetComponent<AmbianceController>();
-     } 
+        ambianceControl = ambianceController.GetComponent<AmbianceController>();*/
+    } 
  
      void  Update ()
 	 { 
@@ -78,6 +76,10 @@ public class PageSystem : MonoBehaviour {
                 if (pagecounter.Page == 1) //play spooky audio clip
                 {
                     ScaryMusic.PlayGhostClip(10f);
+                } else if(pagecounter.Page == 2)
+                {
+                    Debug.Log("Triggering forced SlenderMan warning");
+                    slenderWarning.triggerWarning();
                 }
                 else if(pagecounter.Page == 3) // show scary object + static + audio clip
                 {
