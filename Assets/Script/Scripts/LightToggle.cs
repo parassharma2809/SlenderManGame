@@ -1,4 +1,4 @@
-//Script written by Pratyush Priyadarshi.
+ //Script written by Pratyush Priyadarshi.
 //Contact on pratyushpriyadarshiofficial@gmail.com if any changes required.
 //You are free to use this script in any project until and unless you have not legally downloaded the asset package from itch.io.
 //To give that buggy flashlight feel in a slender forest, I have included 2 random numbers which will be updated every frame.. so if the player presses 'f', he/she has to do it twice or thrice to on/off the flashlight. You can chnage it by removing the random numbers.
@@ -18,30 +18,62 @@ public class LightToggle : MonoBehaviour {
 	
     [Header("Flashlight Battery Settings")]
     public GameObject batterySlider;
+  
     public float battery = 100;
     public float batteryMax = 100;
     public float removeBatteryValue = 0.05f;
     public float secondToRemoveBaterry = 5f;
-
+    
+    //Update--Katha Shah--> flashlight flickering
+    public float maxFlickerSpeed = 1f;              //max light flicker speed
+    public float minFlickerSpeed = 0.1f;            //min light flicker speed
+     
 	[Header("Torch On/Off SFX Settings")]
  	public GameObject TorchOnOffSFXContainer; //the gameobject which contains the audiosource required
-	AudioSource TorchOnOffSFX; //on/off sfx for torch
+    AudioSource TorchOnOffSFX; //on/off sfx for torch
+    
 
-	void Start(){
+	void Start()
+    {
 		battery = batteryMax;
-		
-		flashlight = GetComponent<Light>();
-		
-		TorchOnOffSFX = TorchOnOffSFXContainer.GetComponent<AudioSource>(); // TorchOnOffSFX is the audiosource attached to TorchOnOffSFXContainer gameobject
-		
+	    flashlight = GetComponent<Light>();
+	    TorchOnOffSFX = TorchOnOffSFXContainer.GetComponent<AudioSource>(); // TorchOnOffSFX is the audiosource attached to TorchOnOffSFXContainer gameobject
+        
+
         // set initial battery values
         batterySlider.GetComponent<Slider>().maxValue = batteryMax;
         batterySlider.GetComponent<Slider>().value = batteryMax;
-		
+        
         // start consume flashlight battery
         StartCoroutine(RemoveBaterryCharge(removeBatteryValue, secondToRemoveBaterry));
 	}
+    void Update()
+    {
+        flashlight = GetComponent<Light>();
+        if(battery<10)
+        {
+            StartCoroutine("FlashLightModifier");
+        }
+        if(battery==0)
+        {
+            StopCoroutine("FlashLightModifier");
+            flashlight.enabled = false;
+            
+        }
+        
+       
+    }
+    
+    //[Update-->Katha] Coroutine Flashlight
+    IEnumerator FlashLightModifier()
+    {
+        flashlight.enabled = true;                  //enables flashlight
+        yield return new WaitForSeconds(Random.Range(minFlickerSpeed, maxFlickerSpeed));
+        flashlight.intensity = 4.5f;
 
+        flashlight.enabled = false;                 // disables flashlight
+        yield return new WaitForSeconds(Random.Range(minFlickerSpeed, maxFlickerSpeed));
+    }
 	void LateUpdate(){
 		// update baterry slider
         batterySlider.GetComponent<Slider>().value = battery;
