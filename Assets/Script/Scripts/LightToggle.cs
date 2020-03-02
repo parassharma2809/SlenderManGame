@@ -27,22 +27,52 @@ public class LightToggle : MonoBehaviour {
  	public GameObject TorchOnOffSFXContainer; //the gameobject which contains the audiosource required
 	AudioSource TorchOnOffSFX; //on/off sfx for torch
 
-	void Start(){
+    [Header("Battery Off SFX Settings")]
+    public GameObject BatteryOutSFXContainer;
+    AudioSource BatteryOffSFX;
+
+    //Update--Katha Shah--> flashlight flickering
+    public float maxFlickerSpeed = 1f;              //max light flicker speed
+    public float minFlickerSpeed = 0.1f;            //min light flicker speed
+    private bool isPlayedBatteryOut;
+
+    void Start(){
 		battery = batteryMax;
 		
 		flashlight = GetComponent<Light>();
 		
 		TorchOnOffSFX = TorchOnOffSFXContainer.GetComponent<AudioSource>(); // TorchOnOffSFX is the audiosource attached to TorchOnOffSFXContainer gameobject
-		
+        BatteryOffSFX = BatteryOutSFXContainer.GetComponent<AudioSource>();
         // set initial battery values
         batterySlider.GetComponent<Slider>().maxValue = batteryMax;
         batterySlider.GetComponent<Slider>().value = batteryMax;
 		
         // start consume flashlight battery
         StartCoroutine(RemoveBaterryCharge(removeBatteryValue, secondToRemoveBaterry));
+
+        isPlayedBatteryOut = false;
 	}
 
-	void LateUpdate(){
+    void Update()
+    {
+        if (battery <= 1)
+        {
+            StartCoroutine("FlashLightModifier");
+        }
+    }
+
+    //[Update-->Katha] Coroutine Flashlight
+    IEnumerator FlashLightModifier()
+    {
+        flashlight.enabled = true;                  //enables flashlight
+        yield return new WaitForSeconds(Random.Range(minFlickerSpeed, maxFlickerSpeed));
+        flashlight.intensity = 4.5f;
+
+        flashlight.enabled = false;                 // disables flashlight
+        yield return new WaitForSeconds(Random.Range(minFlickerSpeed, maxFlickerSpeed));
+    }
+
+    void LateUpdate(){
 		// update baterry slider
         batterySlider.GetComponent<Slider>().value = battery;
 		
@@ -91,8 +121,17 @@ public class LightToggle : MonoBehaviour {
             battery = 0.00f;
             Debug.Log("The flashlight battery is out and you are out of the light.");
             flashlight.intensity = 0.0f;
+            StopCoroutine("FlashLightModifier");
+            flashlight.enabled = false;
+            if (!isPlayedBatteryOut)
+            {
+                Debug.Log("Playing SFX");
+                BatteryOffSFX.Play();
+                isPlayedBatteryOut = true;
+            }
+
         }
-	}
+    }
 	
     public IEnumerator RemoveBaterryCharge(float value, float time)
     {

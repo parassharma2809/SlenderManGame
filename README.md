@@ -8,11 +8,11 @@ Events in order:
 3. Static + scary object appears + music
 4. Ambience music change
 5. Slenderman teleport
-6. Flashlight flashes + out of battery + music
+* before falshlight battery goes out: Flashlight flashes + music
 7. Make game difficult and die
 
 Small changes:
 1. Fixed page 3 couldn't be picked up
-2. Fixed battery decrease speed
+2. Fixed battery to die out in 8 minutes
 3. Got rid of camera sprite
 
