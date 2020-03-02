@@ -11,6 +11,7 @@ public class Menubutton : MonoBehaviour
 {
 	[Header("Panels")]
 	public GameObject Menu; // get the gameobject menu panel
+    /*
 	public GameObject Credits; // get the gameobject credits panel
     
     public void CreditsOpen() // if credit is opened
@@ -23,7 +24,7 @@ public class Menubutton : MonoBehaviour
     {
 	Credits.SetActive(false); // credits panel is disabled
 	Menu.SetActive(true); // menu panel is set active
-    }
+    }*/
     
     public void Loading() // if play button is clicked
     {
@@ -35,6 +36,7 @@ public class Menubutton : MonoBehaviour
         Application.Quit(); // quit
     }
     
+    /*
     public void Rate() // if rate button is clicked
     {
         Application.OpenURL("https://ppthebestofficial.itch.io/slendertheend"); // open your rating site
@@ -48,5 +50,5 @@ public class Menubutton : MonoBehaviour
     public void DC() // if discord icon is clicked
     {
         Application.OpenURL("https://discord.gg/wcDJ5CF"); // send invitation to join your discord server
-    }
+    }*/
 }
