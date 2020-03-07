@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: 7ea23a8cd02a4144cb9da124cb187082
-  - enabled: 0
-    path: Assets/Scenes/Intro.unity
-    guid: d350796aba72eb64cb696bec4d6e1247
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 36e66868d2b1af242b7b4bd2ae0cafe1
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: b34da3bf4f0982947aa4c02a48cd9579
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 22e703a3955654f44b45618a892214df
   m_configObjects: {}

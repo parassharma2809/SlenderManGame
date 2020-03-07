@@ -6,7 +6,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LoadIntro : MonoBehaviour
+public class _LoadGame : MonoBehaviour
 {
 	[SerializeField]
 	[Header("Time Settings")]
@@ -19,7 +19,7 @@ public class LoadIntro : MonoBehaviour
 	    
 	if (timeElapsed > delayBeforeLoading) // if time elapsed is greater than time before loading
 	{
-		SceneManager.LoadScene("Intro"); // load intro scene
+		SceneManager.LoadScene("Game"); // load Game scene
 	}
     }
 }
