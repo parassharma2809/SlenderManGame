@@ -125,7 +125,7 @@ public class MoveSlender: MonoBehaviour {
 
 	public void SpawntoRightofPlayer()
     {
-		transform.rotation = Quaternion.Euler(player.right); 
+		transform.rotation = Quaternion.Euler(player.forward); 
 		transform.position = player.position + player.right * distanceToPlayer;
 		if (collided == false)
 		{
