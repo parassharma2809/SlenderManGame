@@ -111,4 +111,31 @@ public class MoveSlender: MonoBehaviour {
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * facePlayerfactor);
 	}
+
+	public void Teleport()
+    {
+		nextTeleport = nextTeleport - spawnRate;
+		SpawntoRightofPlayer();
+    }
+
+	public void setDistanceToPlayer(float dis)
+    {
+		distanceToPlayer = dis;
+    }
+
+	public void SpawntoRightofPlayer()
+    {
+		transform.rotation = Quaternion.Euler(player.right); 
+		transform.position = player.position + player.right * distanceToPlayer;
+		if (collided == false)
+		{
+			Debug.Log("Slender didn't collide with any obstacle, updating the next time to teleport");
+		}
+		else
+		{
+			Debug.Log("Slender has collided with an obstacle, teleporting him to a new location");
+			Teleport();
+		}
+		nextTeleport += spawnRate; // update the next time to teleport	
+	}
 }

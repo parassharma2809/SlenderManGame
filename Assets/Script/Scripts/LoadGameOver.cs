@@ -16,10 +16,9 @@ public class LoadGameOver : MonoBehaviour
     private void Update()
     {
         timeElapsed += Time.deltaTime; // add time to time elapsed
-	    
-	if (timeElapsed > delayBeforeLoading) // if time elapsed is greater than time before loading
-	{
-		SceneManager.LoadScene("GameOver"); // load GameOver scene
-	}
+		if (timeElapsed > delayBeforeLoading) // if time elapsed is greater than time before loading
+		{
+			SceneManager.LoadScene("GameOver"); // load GameOver scene
+		}
     }
 }

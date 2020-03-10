@@ -19,7 +19,7 @@ public class LoadGame : MonoBehaviour
 	    
 	if (timeElapsed > delayBeforeLoading) // if time elapsed is greater than time before loading
 	{
-		SceneManager.LoadScene("Game"); // load Game scene
+		SceneManager.LoadScene("Game"); // load intro scene
 	}
     }
 }
