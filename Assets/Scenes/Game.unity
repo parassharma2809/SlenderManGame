@@ -2920,12 +2920,12 @@ PrefabInstance:
     - target: {fileID: 415337817964714627, guid: 3eed6179632792f45b627f1dda10f56c,
         type: 3}
       propertyPath: m_Range
-      value: 150
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 415337817964714627, guid: 3eed6179632792f45b627f1dda10f56c,
         type: 3}
       propertyPath: m_Intensity
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 415337817964714627, guid: 3eed6179632792f45b627f1dda10f56c,
         type: 3}
@@ -3044,12 +3044,12 @@ PrefabInstance:
     - target: {fileID: 753888238709449688, guid: ff8e3f413c0a06e44b2df9f0c8ddc572,
         type: 3}
       propertyPath: m_WalkSpeed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 753888238709449688, guid: ff8e3f413c0a06e44b2df9f0c8ddc572,
         type: 3}
       propertyPath: m_RunSpeed
-      value: 14
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8e3f413c0a06e44b2df9f0c8ddc572, type: 3}
