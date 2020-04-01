@@ -48,7 +48,7 @@ public class PageSystem : MonoBehaviour {
     {
         if (collider.gameObject.transform.tag == "Player") //If collider of this gameobject touches the gameobject with tag player
         {
-            Debug.Log("You Found a Page: " + collider.gameObject.name + ", Press 'E' to pickup");
+            // Debug.Log("You Found a Page: " + collider.gameObject.name + ", Press 'E' to pickup");
             pickUpUI.SetActive(true); // enable that prompt gameobject saying 'E to collect'
         }
     }
@@ -65,7 +65,7 @@ public class PageSystem : MonoBehaviour {
 				
 				pagecounter.Page += 1; //increase the page count by 1 in <PageCounter>
 				
-                Debug.Log("You get this page: " + pagecounter.Page);
+                // Debug.Log("You get this page: " + pagecounter.Page);
 
                 // disable UI
                 pickUpUI.SetActive(false); // disable that prompt gameobject saying 'E to collect'
@@ -73,18 +73,20 @@ public class PageSystem : MonoBehaviour {
                 // disable game object
                 this.gameObject.SetActive(false); // disable the gameobject itself
 
+                Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Found Page " + pagecounter.Page);
+
                 if (pagecounter.Page == 1) //play spooky audio clip
                 {
                     ScaryMusic.PlayGhostClip(10f);
                 } else if(pagecounter.Page == 2)
                 {
-                    Debug.Log("Triggering forced SlenderMan warning");
+                    // Debug.Log("Triggering forced SlenderMan warning");
                     slenderWarning.triggerWarning();
                 }
                 else if(pagecounter.Page == 3) // show scary object + static + audio clip
                 {
                     currentPageNum = int.Parse(this.gameObject.name.Substring(13));
-                    Debug.Log("Scary objects appearing near page " + currentPageNum);
+                    // Debug.Log("Scary objects appearing near page " + currentPageNum);
                     ScaryObjects.appear(currentPageNum);
                 } else if(pagecounter.Page == 4) // change background music
                 {
