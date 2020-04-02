@@ -36,9 +36,10 @@ public class ScaryMusic : MonoBehaviour
 
     IEnumerator PlayAfterSeconds(AudioSource source, AudioClip clip, float seconds)
     {
-        Debug.Log("start " + Time.time);
+        // Debug.Log("start " + Time.time);
         yield return new WaitForSecondsRealtime(seconds);
-        Debug.Log("finish " + Time.time);
+        // Debug.Log("finish " + Time.time);
+        Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Scary Music");
         source.PlayOneShot(clip, 1.0f);
     }
 }
