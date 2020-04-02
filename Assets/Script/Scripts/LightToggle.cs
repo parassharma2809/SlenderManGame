@@ -97,21 +97,21 @@ public class LightToggle : MonoBehaviour {
         // if battery is low 50%
         if (battery / batteryMax * 100 <= 50)
         {
-            // Debug.Log("Flashlight is running out of battery.");
+            Debug.Log("Flashlight is running out of battery.");
             flashlight.intensity = 2.85f;
         }
 
         // if battery is low 25%
         if (battery / batteryMax * 100 <= 25)
         {
-            // Debug.Log("Flashlight is almost without battery.");
+            Debug.Log("Flashlight is almost without battery.");
             flashlight.intensity = 2.0f;
         }
 
         // if battery is low 10%
         if (battery / batteryMax * 100 <= 10)
         {
-            // Debug.Log("You will be out of light.");
+            Debug.Log("You will be out of light.");
             flashlight.intensity = 1.35f;           
         }
 
@@ -119,14 +119,13 @@ public class LightToggle : MonoBehaviour {
         if (battery / batteryMax * 100 <= 0)
         {
             battery = 0.00f;
-            // Debug.Log("The flashlight battery is out and you are out of the light.");
-            
+            Debug.Log("The flashlight battery is out and you are out of the light.");
             flashlight.intensity = 0.0f;
             StopCoroutine("FlashLightModifier");
             flashlight.enabled = false;
             if (!isPlayedBatteryOut)
             {
-                // Debug.Log("Playing SFX");
+                Debug.Log("Playing SFX");
                 BatteryOffSFX.Play();
                 isPlayedBatteryOut = true;
             }
@@ -145,8 +144,7 @@ public class LightToggle : MonoBehaviour {
             if (battery > 0)
                 battery -= value;
             else
-                // Debug.Log("The flashlight battery is out");
-                Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Flashlight is Out");
+                Debug.Log("The flashlight battery is out");
         }
     }
 }
