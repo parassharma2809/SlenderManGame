@@ -25,8 +25,6 @@ public class EnemyDetector : MonoBehaviour {
 	public float counterFalloff = 1f; // How quickly does counter fall go back down to zero when not looking at enemy? 
 	private float lookDuration = 0.0f; // How long the player has been looking at the enemy. 
 	public float distanceToEnemy = 50f; // how close the enemy has to be to the player to increment the counter
-
-	public bool newEncounter = false;
 	
 	void Start()
 	{
@@ -49,13 +47,7 @@ public class EnemyDetector : MonoBehaviour {
 			glitch.flipIntensity = 1;
 			glitch.colorIntensity = 0.3f;
 			lookDuration += Time.deltaTime;
-			// Debug.Log("Slender is visible");
-			
-			// Debug.Log(System.DateTime.Now + ": Slender Encounter");
-			if (!newEncounter) {
-				Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Slender Encounter");
-				newEncounter = true;
-			}
+			Debug.Log("Slender is visible");
 
 			// Player has looked at enemy for too long, die.
 			if (lookDuration > maxLookDuration) 
@@ -72,7 +64,6 @@ public class EnemyDetector : MonoBehaviour {
 			glitch.colorIntensity = 0;
 			lookDuration = Mathf.Max(lookDuration - Time.deltaTime * counterFalloff, 0f);
 			StaticSFXSource.Stop();
-			newEncounter = false;
 		}
 		
 		//Debug.Log("look duration = " + lookDuration);
