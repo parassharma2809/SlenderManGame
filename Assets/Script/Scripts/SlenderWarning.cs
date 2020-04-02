@@ -21,7 +21,7 @@ public class SlenderWarning : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("started in slenderwarning");
+        // Debug.Log("started in slenderwarning");
         WarningSFXSource = WarningFXContainer.GetComponent<AudioSource>();
         glitch = PlayerCam.GetComponent<GlitchEffect>();
         Warning = this.gameObject.GetComponent<Text>();
@@ -30,7 +30,7 @@ public class SlenderWarning : MonoBehaviour
 
     public void triggerWarning()
     {
-        Debug.Log("Triggering warning");
+        // Debug.Log("Triggering warning");
         Warning.enabled = true;
         WarningSFXSource.Play();
         glitch.intensity = 1;
@@ -43,7 +43,7 @@ public class SlenderWarning : MonoBehaviour
     {
         if (Warning.enabled && (Time.time >= timeStarted + duration))
         {
-            Debug.Log("Stop showing the warning message!!");
+            // Debug.Log("Stop showing the warning message!!");
             glitch.intensity = 0;
             glitch.flipIntensity = 0;
             glitch.colorIntensity = 0;

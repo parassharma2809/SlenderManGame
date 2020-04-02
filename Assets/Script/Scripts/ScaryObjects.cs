@@ -27,9 +27,9 @@ public class ScaryObjects : MonoBehaviour
 
     public void appear()
     {
-        Debug.Log("Making scary objects appear...");
+        // Debug.Log("Making scary objects appear...");
         StaticSFXSource.Play();
-        Debug.Log("glitch effects");
+        // Debug.Log("glitch effects");
         glitch.intensity = 1;
         glitch.flipIntensity = 1;
         glitch.colorIntensity = 0.3f;
@@ -39,9 +39,9 @@ public class ScaryObjects : MonoBehaviour
 
     IEnumerator Wait()
     {
-        Debug.Log("waiting " + Time.time);
+        // Debug.Log("waiting " + Time.time);
         yield return new WaitForSecondsRealtime(2.0f);
-        Debug.Log("finished " + Time.time);
+        // Debug.Log("finished " + Time.time);
         StaticSFXSource.Stop();
         glitch.intensity = 0;
         glitch.flipIntensity = 0;
