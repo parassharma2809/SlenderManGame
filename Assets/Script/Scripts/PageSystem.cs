@@ -44,7 +44,7 @@ public class PageSystem : MonoBehaviour {
     {
         if (collider.gameObject.transform.tag == "Player") //If collider of this gameobject touches the gameobject with tag player
         {
-            Debug.Log("You Found a Page: " + collider.gameObject.name + ", Press 'E' to pickup");
+            // Debug.Log("You Found a Page: " + collider.gameObject.name + ", Press 'E' to pickup");
             pickUpUI.SetActive(true); // enable that prompt gameobject saying 'E to collect'
         }
     }
@@ -61,7 +61,7 @@ public class PageSystem : MonoBehaviour {
 				
 				pagecounter.Page += 1; //increase the page count by 1 in <PageCounter>
 				
-                Debug.Log("You get this page: " + pagecounter.Page);
+                // Debug.Log("You get this page: " + pagecounter.Page);
 
                 // disable UI
                 pickUpUI.SetActive(false); // disable that prompt gameobject saying 'E to collect'
@@ -69,12 +69,14 @@ public class PageSystem : MonoBehaviour {
                 // disable game object
                 this.gameObject.SetActive(false); // disable the gameobject itself
 
+                Debug.Log("EventLog " + System.DateTime.Now.ToString("HH:mm:ss") + " Page " + pagecounter.Page);
+
                 if (pagecounter.Page == 1) //play ghost clip
                 {
                     ScaryMusic.PlayGhostClip(3f);
                 } else if(pagecounter.Page == 2)
                 {
-                    Debug.Log("Triggering forced SlenderMan warning");
+                    // Debug.Log("Triggering forced SlenderMan warning");
                     slenderWarning.triggerWarning();
                 }
                 else if(pagecounter.Page == 3) // play breathing clip

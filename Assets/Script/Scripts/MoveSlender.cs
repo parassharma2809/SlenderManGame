@@ -57,12 +57,12 @@ public class MoveSlender: MonoBehaviour {
 				transform.position = new Vector3 (Random.Range(spawnOrgin.x, maximum.x), Random.Range(spawnOrgin.y, maximum.y), Random.Range(spawnOrgin.z, maximum.z)); // teleport
 				if (collided == false)
 				{
-					Debug.Log("Slender didn't collide with any obstacle, updating the next time to teleport");
+					// Debug.Log("Slender didn't collide with any obstacle, updating the next time to teleport");
 					nextTeleport += spawnRate; // update the next time to teleport	
 				}
 				else
 				{
-					Debug.Log("Slender has collided with an obstacle, teleporting him to a new location");
+					// Debug.Log("Slender has collided with an obstacle, teleporting him to a new location");
 					transform.position = new Vector3 (Random.Range(spawnOrgin.x, maximum.x), Random.Range(spawnOrgin.y, maximum.y), Random.Range(spawnOrgin.z, maximum.z)); // teleport
 					nextTeleport += spawnRate; // update the next time to teleport	
 				}
@@ -129,11 +129,11 @@ public class MoveSlender: MonoBehaviour {
 		transform.position = player.position + player.right * distanceToPlayer;
 		if (collided == false)
 		{
-			Debug.Log("Slender didn't collide with any obstacle, updating the next time to teleport");
+			// Debug.Log("Slender didn't collide with any obstacle, updating the next time to teleport");
 		}
 		else
 		{
-			Debug.Log("Slender has collided with an obstacle, teleporting him to a new location");
+			// Debug.Log("Slender has collided with an obstacle, teleporting him to a new location");
 			Teleport();
 		}
 		nextTeleport += spawnRate; // update the next time to teleport	
