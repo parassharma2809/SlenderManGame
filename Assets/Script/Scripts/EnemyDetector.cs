@@ -51,9 +51,8 @@ public class EnemyDetector : MonoBehaviour {
 			lookDuration += Time.deltaTime;
 			// Debug.Log("Slender is visible");
 			
-			// Debug.Log(System.DateTime.Now + ": Slender Encounter");
 			if (!newEncounter) {
-				Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Slender Encounter");
+				Debug.Log("EventLog " + System.DateTime.Now.ToString("HH:mm:ss") + " Slender Encounter");
 				newEncounter = true;
 			}
 

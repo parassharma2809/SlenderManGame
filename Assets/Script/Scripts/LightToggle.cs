@@ -146,7 +146,7 @@ public class LightToggle : MonoBehaviour {
                 battery -= value;
             else
                 // Debug.Log("The flashlight battery is out");
-                Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Flashlight is Out");
+                Debug.Log("EventLog " + System.DateTime.Now.ToString("HH:mm:ss") + " Flashlight is Out");
         }
     }
 }

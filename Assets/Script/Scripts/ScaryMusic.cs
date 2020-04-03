@@ -39,7 +39,7 @@ public class ScaryMusic : MonoBehaviour
         // Debug.Log("start " + Time.time);
         yield return new WaitForSecondsRealtime(seconds);
         // Debug.Log("finish " + Time.time);
-        Debug.Log(((int) Time.realtimeSinceStartup / 60).ToString() + ":" + ((int) Time.realtimeSinceStartup % 60).ToString("00") + " Scary Music");
+        Debug.Log("EventLog " + System.DateTime.Now.ToString("HH:mm:ss") +  " Scary Music");
         source.PlayOneShot(clip, 1.0f);
     }
 }
