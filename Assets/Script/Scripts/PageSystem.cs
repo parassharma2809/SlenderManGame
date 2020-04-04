@@ -57,7 +57,7 @@ public class PageSystem : MonoBehaviour {
             {
 				PagePickupSFX.Play(); //Play pickup SFX
 				
-				slenderai.spawnRate -= 9; //decrease the spawn rate in <MoveSlender> by 9 so slender respawns faster and faster
+				slenderai.spawnRate -= 11; //decrease the spawn rate in <MoveSlender> by 9 so slender respawns faster and faster
 				
 				pagecounter.Page += 1; //increase the page count by 1 in <PageCounter>
 				
@@ -91,6 +91,10 @@ public class PageSystem : MonoBehaviour {
                 } else if(pagecounter.Page == 6) //dead bodies appear near all pages
                 {
                     ScaryObjects.appear();
+                    slenderai.Teleport();
+                } else  // Teleport SlenderMan to Page 7 and Page 8
+                {
+                    slenderai.Teleport();
                 }
             }
         }
