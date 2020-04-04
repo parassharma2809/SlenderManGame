@@ -25,7 +25,13 @@ public class Menubutton : MonoBehaviour
 	Credits.SetActive(false); // credits panel is disabled
 	Menu.SetActive(true); // menu panel is set active
     }*/
-    
+
+    public void Start()
+    {
+        Cursor.visible = true;
+        Screen.lockCursor = false;
+    }
+
     public void Loading() // if play button is clicked
     {
        SceneManager.LoadScene("Loading"); // load the loading scene
