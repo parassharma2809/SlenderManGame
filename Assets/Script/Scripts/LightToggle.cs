@@ -143,7 +143,7 @@ public class LightToggle : MonoBehaviour
         {
             yield return new WaitForSeconds(time);
 
-            Debug.Log("Removing baterry value: " + value);
+            // Debug.Log("Removing baterry value: " + value);
             if (flashlight.enabled)
             {
                 if (battery > 0)

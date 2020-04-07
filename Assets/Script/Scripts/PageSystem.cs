@@ -29,6 +29,10 @@ public class PageSystem : MonoBehaviour {
     public ScaryMusic ScaryMusic;
     public ScaryObjects ScaryObjects;
 
+    bool guardedPage = false;
+
+
+
     void  Start ()
 	 {
 	 	slenderai = Slender.GetComponent<MoveSlender>(); // slenderai is the script <MoveSlender> attached to it
@@ -44,8 +48,24 @@ public class PageSystem : MonoBehaviour {
     {
         if (collider.gameObject.transform.tag == "Player") //If collider of this gameobject touches the gameobject with tag player
         {
-            // Debug.Log("You Found a Page: " + collider.gameObject.name + ", Press 'E' to pickup");
-            pickUpUI.SetActive(true); // enable that prompt gameobject saying 'E to collect'
+            // Spawn slenderman to guard the page
+            if (pagecounter.Page == 7) {
+                if (!guardedPage) {
+                    // Debug.Log("Triggered increased collision radius: " + collider.gameObject.transform.position);
+                    guardedPage = true;
+                    BoxCollider myCollider = this.gameObject.transform.GetComponent<BoxCollider>();
+                    slenderai.TeleportToPage();
+                    // shrink collision radius back down
+                    myCollider.size = new Vector3(3, 4, 1);
+                } else {
+                    // Debug.Log("pick up UI: " + collider.gameObject.transform.position);
+                    pickUpUI.SetActive(true); 
+                }
+            } else {
+                // Debug.Log("You Found a Page: " + collider.gameObject.name + ", Press 'E' to pickup");
+                // Debug.Log("pick up UI: " + collider.gameObject.transform.position);
+                pickUpUI.SetActive(true); // enable that prompt gameobject saying 'E to collect'
+            }
         }
     }
 
@@ -91,6 +111,22 @@ public class PageSystem : MonoBehaviour {
                 } else if(pagecounter.Page == 6) //dead bodies appear near all pages
                 {
                     ScaryObjects.appear();
+                } else if(pagecounter.Page == 7)
+                {
+                    if (!guardedPage) {
+                        // Debug.Log("Inceasing collision radius");
+                        // Player has found all pages but one. Finds the last undiscovered page.
+                        for (int i = 1; i <= 8; i++) {
+                            string pageName = "Slender Page " + i;
+                            GameObject page = GameObject.Find(pageName);
+                            // Increase collision radius of the last page
+                            if (page != null && page.activeInHierarchy) {
+                                BoxCollider myCollider = page.transform.GetComponent<BoxCollider>();
+                                myCollider.size = new Vector3(150, 200, 50); // 3 4 1
+                                // Debug.Log("Page " + i + " collider size: " + page.transform.GetComponent<BoxCollider>().size);
+                            }
+                        }
+                    }
                 }
             }
         }

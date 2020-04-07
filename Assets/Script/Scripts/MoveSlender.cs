@@ -9,6 +9,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using static System.Math;
 
 public class MoveSlender: MonoBehaviour {
 
@@ -138,4 +139,44 @@ public class MoveSlender: MonoBehaviour {
 		}
 		nextTeleport += spawnRate; // update the next time to teleport	
 	}
+
+	public void TeleportToPage() {
+		GameObject lastPage = null;
+		// Player has found all pages but one. Finds the last undiscovered page.
+        for (int i = 1; i <= 8; i++) {
+            string pageName = "Slender Page " + i;
+            GameObject page = GameObject.Find(pageName);
+            if (page != null && page.activeInHierarchy) {
+                lastPage = page;
+				// Debug.Log("last page is at " + page.transform.position);
+            }
+        }
+		if (lastPage) {
+			int attempts = 0;
+			do
+			{
+				double theta = lastPage.transform.eulerAngles.y * PI / 180.0;
+				float x_p = lastPage.transform.position.x * (float) Cos(theta) + lastPage.transform.position.z * (float) -Sin(theta);
+				float z_p = lastPage.transform.position.x * (float) Sin(theta) + lastPage.transform.position.z * (float) Cos(theta);
+
+				float rx = Random.Range(0f,1f);
+				float rz = Random.Range(0f, rx*rx*rx);
+				float a = 8f;
+				float b = 10f;
+
+				float x_s = x_p + a + b * rx*rx*rx;
+				float z_s = z_p + b * rz*rz*rz;
+
+				float x_sp = x_s * (float) Cos(theta) + z_s * (float) Sin(theta);
+				float z_sp = x_s * (float) -Sin(theta) + z_s * (float) Cos(theta);
+
+				transform.position = new Vector3(x_sp,player.transform.position.y, z_sp);
+				transform.rotation = lastPage.transform.rotation;
+				// Debug.Log("Guard " + transform.position);
+
+				attempts++;
+			} while(collided && attempts < 10);
+		}
+	}
+
 }
