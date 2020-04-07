@@ -35,6 +35,8 @@ public class MoveSlender: MonoBehaviour {
 	private bool nearPlayer = false; // use this to stop the teleporting if near the player
 	private bool collided = false; // use this to keep track of collision with the obstacle
 
+	private bool guardingPage = false;
+
 	void Start() {
 		Player = GameObject.FindWithTag("Player"); // find the gameobject with the tag of Player.
 		player = Player.GetComponent<Transform>(); // from the gameobject of player get the transform
@@ -51,7 +53,7 @@ public class MoveSlender: MonoBehaviour {
 		
 		FacePlayer(); // face player no matter what
 		
-		if (!(nearPlayer || inView)) // only teleport if we are not close to the player and not in it's view
+		if (!(nearPlayer || inView || guardingPage)) // only teleport if we are not close to the player and not in it's view and slender is not guarding a page
 		{
 			if (Time.time > nextTeleport) // only teleport if enough time has passed
 			{
@@ -177,6 +179,7 @@ public class MoveSlender: MonoBehaviour {
 				attempts++;
 			} while(collided && attempts < 10);
 		}
+		guardingPage = true;
 	}
 
 }
