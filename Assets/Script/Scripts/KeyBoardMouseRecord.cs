@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class KeyBoardMouseRecord : MonoBehaviour
 {
     public Vector2 mouseSpeed = Vector2.zero;
+    public Vector2 mousePosition = Vector2.zero;
     private string TAG1 = "MouseSpeed:";
     private string TAG2 = "KeyStroke:";
+    private string TAG3 = "MouseCoord:";
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("ScreenSize:" + Screen.currentResolution);
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class KeyBoardMouseRecord : MonoBehaviour
     void Update()
     {
         recordMouseMovementVelocity();  // Record the mouse velocity every frame
-
+        recordMousePosition();  // Record the mouse coordinates every frame
         recordKeyStroke();  // Record the Key pressed and released every frame
     }
 
@@ -30,6 +32,12 @@ public class KeyBoardMouseRecord : MonoBehaviour
         Debug.Log(TAG1 + System.DateTime.Now.ToString("HH:mm:ss") + " Speed " + mouseSpeed.magnitude);
     }
 
+    void recordMousePosition()
+    {
+        mousePosition.x = Input.mousePosition.x;
+        mousePosition.y = Input.mousePosition.y;
+        Debug.Log(TAG3 + System.DateTime.Now.ToString("HH:mm:ss") + " " + mousePosition);
+    }
     void recordKeyStroke()
     {
         foreach(KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
