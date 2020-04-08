@@ -1539,6 +1539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSpeed: {x: 0, y: 0}
+  mousePosition: {x: 0, y: 0}
 --- !u!1 &1293214400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3261269564070915097, guid: 234d65cb7302da9448e7ccabbb3e1cd2,
@@ -2968,6 +2969,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 753888238170115210, guid: ff8e3f413c0a06e44b2df9f0c8ddc572,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 753888238420804373, guid: ff8e3f413c0a06e44b2df9f0c8ddc572,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 753888238709449688, guid: ff8e3f413c0a06e44b2df9f0c8ddc572,
         type: 3}
